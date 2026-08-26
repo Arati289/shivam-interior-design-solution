@@ -1,110 +1,96 @@
-import { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function Portfolio() {
   const navigate = useNavigate();
 
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
   const projects = [
     {
-      title: "Luxury Living Room",
+      id: 1,
+      title: "Modern Living Room",
       category: "Living Room",
-      location: "Pune",
-      description:
-        "A warm and elegant living room designed with modern furniture, soft lighting and premium finishes.",
+      location: "Pune, Maharashtra",
       image:
         "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
     },
+
     {
-      title: "Modern Modular Kitchen",
-      category: "Kitchen",
-      location: "Kolhapur",
-      description:
-        "A practical modular kitchen with smart storage, contemporary finishes and efficient space planning.",
-      image:
-        "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg",
-    },
-    {
-      title: "Luxury Master Bedroom",
+      id: 2,
+      title: "Luxury Bedroom",
       category: "Bedroom",
-      location: "Pune",
-      description:
-        "A calm and luxurious bedroom designed for comfort with elegant colours and modern detailing.",
+      location: "Pune, Maharashtra",
       image:
-        "https://images.pexels.com/photos/1648768/pexels-photo-1648768.jpeg",
+        "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
     },
+
     {
-      title: "Elegant Dining Space",
-      category: "Dining",
-      location: "Mumbai",
-      description:
-        "A sophisticated dining area combining functionality, comfort and contemporary aesthetics.",
+      id: 3,
+      title: "Contemporary Kitchen",
+      category: "Kitchen",
+      location: "Pune, Maharashtra",
       image:
-        "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg",
+        "https://images.pexels.com/photos/2062431/pexels-photo-2062431.jpeg",
     },
+
     {
-      title: "Modern Office Interior",
+      id: 4,
+      title: "Elegant Home Interior",
+      category: "Full Home",
+      location: "Pune, Maharashtra",
+      image:
+        "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg",
+    },
+
+    {
+      id: 5,
+      title: "Modern Family Lounge",
+      category: "Living Room",
+      location: "Pune, Maharashtra",
+      image:
+        "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg",
+    },
+
+    {
+      id: 6,
+      title: "Premium Office",
       category: "Office",
-      location: "Pune",
-      description:
-        "A productive workspace designed with clean lines, comfortable furniture and smart planning.",
+      location: "Pune, Maharashtra",
       image:
-        "https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg",
-    },
-    {
-      title: "Premium Wardrobe Design",
-      category: "Wardrobe",
-      location: "Kolhapur",
-      description:
-        "A customized wardrobe solution offering organised storage, premium finishes and a clean modern look.",
-      image:
-        "https://images.pexels.com/photos/6585750/pexels-photo-6585750.jpeg",
+        "https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg",
     },
   ];
-
-  const categories = [
-    "All",
-    "Living Room",
-    "Kitchen",
-    "Bedroom",
-    "Dining",
-    "Office",
-    "Wardrobe",
-  ];
-
-  const filteredProjects =
-    selectedCategory === "All"
-      ? projects
-      : projects.filter(
-          (project) => project.category === selectedCategory
-        );
 
   return (
     <div className="portfolio-page">
 
-      {/* ================= HERO ================= */}
+      {/* =================================================
+          HERO
+      ================================================= */}
 
       <section className="portfolio-hero">
 
         <div className="portfolio-hero-overlay">
 
-          <div className="container text-center text-white">
+          <div className="container">
 
-            <span className="portfolio-label">
-              OUR WORK
-            </span>
+            <div className="portfolio-hero-content">
 
-            <h1>
-              Spaces We Have
-              <br />
-              Transformed
-            </h1>
+              <span>
+                OUR PORTFOLIO
+              </span>
 
-            <p>
-              Explore our interior design projects
-              and discover ideas for your dream space.
-            </p>
+              <h1>
+                Spaces We've
+                <br />
+                <em>Transformed.</em>
+              </h1>
+
+              <p>
+                A collection of interiors created with purpose,
+                personality and timeless design.
+              </p>
+
+            </div>
 
           </div>
 
@@ -113,7 +99,9 @@ function Portfolio() {
       </section>
 
 
-      {/* ================= PROJECT SECTION ================= */}
+      {/* =================================================
+          PROJECTS
+      ================================================= */}
 
       <section className="portfolio-section">
 
@@ -121,112 +109,69 @@ function Portfolio() {
 
           <div className="portfolio-heading">
 
-            <span className="section-label">
-              FEATURED PROJECTS
+            <span>
+              SELECTED PROJECTS
             </span>
 
             <h2>
-              Our Latest Work
+              Our Recent
+              <em> Work.</em>
             </h2>
 
             <p>
-              Every project is designed with attention to
-              detail, functionality and your personal style.
+              Discover some of the spaces we have designed
+              for our clients.
             </p>
 
           </div>
 
 
-          {/* FILTERS */}
+          <div className="portfolio-grid">
 
-          <div className="portfolio-filters">
-
-            {categories.map((category) => (
-
-              <button
-                key={category}
-                type="button"
-                className={
-                  selectedCategory === category
-                    ? "portfolio-filter active"
-                    : "portfolio-filter"
-                }
-                onClick={() =>
-                  setSelectedCategory(category)
-                }
-              >
-                {category}
-              </button>
-
-            ))}
-
-          </div>
-
-
-          {/* PROJECT GRID */}
-
-          <div className="row g-4">
-
-            {filteredProjects.map((project, index) => (
+            {projects.map((project) => (
 
               <div
-                className="col-lg-4 col-md-6"
-                key={index}
+                className="portfolio-card"
+                key={project.id}
               >
 
-                <div className="portfolio-card">
+                {/* IMAGE */}
 
-                  {/* IMAGE */}
+                <div className="portfolio-image">
 
-                  <div className="portfolio-image">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                  />
 
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                    />
+                  <span className="portfolio-category">
+                    {project.category}
+                  </span>
 
-                    <div className="portfolio-category">
-                      {project.category}
-                    </div>
+                </div>
 
+
+                {/* CONTENT */}
+
+                <div className="portfolio-content">
+
+                  <div className="portfolio-location">
+                    {project.location}
                   </div>
 
+                  <h3>
+                    {project.title}
+                  </h3>
 
-                  {/* CONTENT */}
-
-                  <div className="portfolio-content">
-
-                    <div className="portfolio-location">
-                      📍 {project.location}
-                    </div>
-
-                    <h3>
-                      {project.title}
-                    </h3>
-
-                    <p>
-                      {project.description}
-                    </p>
-
-                    <button
-                      type="button"
-                      className="portfolio-view-btn"
-                      onClick={() =>
-                        navigate(
-                          "/project-details",
-                          {
-                            state: {
-                              project: project,
-                            },
-                          }
-                        )
-                      }
-                    >
-                      View Project
-                      <span>→</span>
-                    </button>
-
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      navigate(`/project/${project.id}`)
+                    }
+                  >
+                    View Project
+                    <span>→</span>
+                  </button>
 
                 </div>
 
@@ -236,28 +181,34 @@ function Portfolio() {
 
           </div>
 
+        </div>
 
-          {/* BOTTOM CTA */}
+      </section>
 
-          <div className="portfolio-cta">
 
-            <div>
+      {/* =================================================
+          CTA
+      ================================================= */}
 
-              <span>
-                HAVE A PROJECT IN MIND?
-              </span>
+      <section className="portfolio-cta">
 
-              <h3>
-                Let's create your dream interior.
-              </h3>
+        <div className="container">
 
-            </div>
+          <span>
+            HAVE A PROJECT IN MIND?
+          </span>
 
-            <a href="/contact">
-              Get Free Consultation →
-            </a>
+          <h2>
+            Let's design a space
+            <em> you'll love.</em>
+          </h2>
 
-          </div>
+          <button
+            type="button"
+            onClick={() => navigate("/contact")}
+          >
+            Start Your Project →
+          </button>
 
         </div>
 

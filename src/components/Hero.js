@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 function Hero() {
-  const whatsappNumber = "917058253252";
-  const phoneNumber = "+917058253252";
+  const whatsappNumber = "919767462242";
+  const phoneNumber = "+919767462242";
 
   return (
     <section className="hero-section">

@@ -1,242 +1,132 @@
-import { Link } from "react-router-dom";
+import React from "react";
 
 function Footer() {
-  const whatsappNumber = "917058253252";
-  const phoneNumber = "+917058253252";
-  const emailAddress = "info@shivaminteriors.com";
-
   return (
     <footer className="site-footer">
 
-      {/* =====================================================
-          MAIN FOOTER
-      ===================================================== */}
+      <div className="container">
 
-      <div className="footer-main">
+        <div className="footer-main">
 
-        <div className="container">
+          {/* COMPANY */}
+          <div className="footer-column footer-company">
 
-          <div className="row gy-5">
+            <h2>Shivam Interior<br />Design Solution</h2>
 
+            <p>
+              Creating elegant, functional and personalized
+              interiors that reflect your lifestyle and transform
+              the way you experience your space.
+            </p>
 
-            {/* ================= COMPANY ================= */}
+            <a
+              href="https://wa.me/919767462242"
+              target="_blank"
+              rel="noreferrer"
+              className="footer-whatsapp"
+            >
+              Chat on WhatsApp →
+            </a>
 
-            <div className="col-lg-4 col-md-6">
+          </div>
 
-              <div className="footer-company">
 
-                <div className="footer-logo-mark">
-                  SD
-                </div>
+          {/* QUICK LINKS */}
+          <div className="footer-column">
 
-                <h2>
-                  Shivam Interior
-                  <br />
-                  Design Solution
-                </h2>
+            <h3>QUICK LINKS</h3>
 
-                <p>
-                  Creating elegant, functional and personalized
-                  interiors that reflect your lifestyle and
-                  transform the way you experience your space.
-                </p>
+            <ul className="footer-links">
 
-                <a
-                  href={`https://wa.me/${whatsappNumber}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="footer-whatsapp"
-                >
-                  Chat on WhatsApp
-                  <span>→</span>
-                </a>
+              <li>
+                <a href="/">Home</a>
+              </li>
 
-              </div>
+              <li>
+                <a href="/about">About Us</a>
+              </li>
 
-            </div>
+              <li>
+                <a href="/services">Services</a>
+              </li>
 
+              <li>
+                <a href="/portfolio">Portfolio</a>
+              </li>
 
-            {/* ================= QUICK LINKS ================= */}
+              <li>
+                <a href="/gallery">Gallery</a>
+              </li>
 
-            <div className="col-lg-2 col-md-6">
+              <li>
+                <a href="/contact">Contact</a>
+              </li>
 
-              <div className="footer-column">
+            </ul>
 
-                <h4>
-                  QUICK LINKS
-                </h4>
+          </div>
 
-                <div className="footer-links">
 
-                  <Link to="/">
-                    Home
-                  </Link>
+          {/* SERVICES */}
+          <div className="footer-column">
 
-                  <Link to="/about">
-                    About Us
-                  </Link>
+            <h3>OUR SERVICES</h3>
 
-                  <Link to="/services">
-                    Services
-                  </Link>
+            <ul className="footer-links">
 
-                  <Link to="/portfolio">
-                    Portfolio
-                  </Link>
+              <li>
+                <a href="/services">Modular Kitchen</a>
+              </li>
 
-                  <Link to="/gallery">
-                    Gallery
-                  </Link>
+              <li>
+                <a href="/services">Living Room</a>
+              </li>
 
-                  <Link to="/contact">
-                    Contact
-                  </Link>
+              <li>
+                <a href="/services">Bedroom Design</a>
+              </li>
 
-                </div>
+              <li>
+                <a href="/services">Wardrobe</a>
+              </li>
 
-              </div>
+              <li>
+                <a href="/services">Office Interior</a>
+              </li>
 
-            </div>
+              <li>
+                <a href="/services">False Ceiling</a>
+              </li>
 
+            </ul>
 
-            {/* ================= SERVICES ================= */}
+          </div>
 
-            <div className="col-lg-3 col-md-6">
 
-              <div className="footer-column">
+          {/* CONTACT */}
+          <div className="footer-column">
 
-                <h4>
-                  OUR SERVICES
-                </h4>
+            <h3>GET IN TOUCH</h3>
 
-                <div className="footer-links">
+            <div className="footer-contact">
 
-                  <Link to="/services">
-                    Modular Kitchen
-                  </Link>
+              <a href="tel:+919767462242">
+                ☎ &nbsp; +91 9767462242
+              </a>
 
-                  <Link to="/services">
-                    Living Room
-                  </Link>
+              <a href="mailto:info@shivaminteriors.com">
+                ✉ &nbsp; info@shivaminteriors.com
+              </a>
 
-                  <Link to="/services">
-                    Bedroom Interior
-                  </Link>
+              <p>
+                ⦿ &nbsp; Pune, Maharashtra, India
+              </p>
 
-                  <Link to="/services">
-                    Wardrobe Design
-                  </Link>
-
-                  <Link to="/services">
-                    Office Interior
-                  </Link>
-
-                  <Link to="/services">
-                    False Ceiling
-                  </Link>
-
-                </div>
-
-              </div>
-
-            </div>
-
-
-            {/* ================= CONTACT ================= */}
-
-            <div className="col-lg-3 col-md-6">
-
-              <div className="footer-column">
-
-                <h4>
-                  GET IN TOUCH
-                </h4>
-
-
-                {/* PHONE */}
-
-                <a
-                  href={`tel:${phoneNumber}`}
-                  className="footer-contact-item"
-                >
-
-                  <span className="footer-contact-icon">
-                    ☎
-                  </span>
-
-                  <span>
-                    <small>
-                      CALL US
-                    </small>
-
-                    +91 70582 53252
-                  </span>
-
-                </a>
-
-
-                {/* EMAIL */}
-
-                <a
-                  href={`mailto:${emailAddress}`}
-                  className="footer-contact-item"
-                >
-
-                  <span className="footer-contact-icon">
-                    ✉
-                  </span>
-
-                  <span>
-                    <small>
-                      EMAIL
-                    </small>
-
-                    {emailAddress}
-                  </span>
-
-                </a>
-
-
-                {/* LOCATION */}
-
-                <div className="footer-contact-item">
-
-                  <span className="footer-contact-icon">
-                    ◎
-                  </span>
-
-                  <span>
-                    <small>
-                      LOCATION
-                    </small>
-
-                    Pune, Maharashtra, India
-                  </span>
-
-                </div>
-
-
-                {/* HOURS */}
-
-                <div className="footer-contact-item">
-
-                  <span className="footer-contact-icon">
-                    ◷
-                  </span>
-
-                  <span>
-                    <small>
-                      WORKING HOURS
-                    </small>
-
-                    Monday - Saturday
-                    <br />
-                    10:00 AM - 7:00 PM
-                  </span>
-
-                </div>
-
-              </div>
+              <p>
+                ◷ &nbsp; Monday - Saturday
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 7:00 PM
+              </p>
 
             </div>
 
@@ -244,47 +134,18 @@ function Footer() {
 
         </div>
 
-      </div>
 
+        {/* BOTTOM */}
+        <div className="footer-bottom">
 
-      {/* =====================================================
-          FOOTER BOTTOM
-      ===================================================== */}
+          <p>
+            © 2026 Shivam Interior Design Solution.
+            All Rights Reserved.
+          </p>
 
-      <div className="footer-bottom">
-
-        <div className="container">
-
-          <div className="footer-bottom-inner">
-
-            <p>
-              © {new Date().getFullYear()}
-              {" "}
-              Shivam Interior Design Solution.
-              All Rights Reserved.
-            </p>
-
-            <div className="footer-bottom-links">
-
-              <Link to="/contact">
-                Get Free Consultation
-              </Link>
-
-              <span>
-                •
-              </span>
-
-              <a
-                href={`https://wa.me/${whatsappNumber}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                WhatsApp Us
-              </a>
-
-            </div>
-
-          </div>
+          <p>
+            Designed with care for beautiful spaces.
+          </p>
 
         </div>
 

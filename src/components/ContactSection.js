@@ -1,4 +1,76 @@
+import React, { useState } from "react";
+
 function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    requirement: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Check fields
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.phone.trim() ||
+      !formData.requirement.trim()
+    ) {
+      alert("Please fill all the fields.");
+      return;
+    }
+
+    // Validate phone
+    const phone = formData.phone.replace(/\D/g, "");
+
+    if (phone.length !== 10) {
+      alert("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
+    // WhatsApp message
+    const message =
+      "Hello Shivam Interior Design Solution,\n\n" +
+      "I would like to enquire about an interior design project.\n\n" +
+      "Name: " +
+      formData.name +
+      "\n" +
+      "Email: " +
+      formData.email +
+      "\n" +
+      "Phone: " +
+      formData.phone +
+      "\n\n" +
+      "Requirement:\n" +
+      formData.requirement +
+      "\n\n" +
+      "Please contact me regarding this enquiry.";
+
+    // WhatsApp number
+    const whatsappNumber = "919767462242";
+
+    // Create WhatsApp URL
+    const whatsappURL =
+      "https://wa.me/" +
+      whatsappNumber +
+      "?text=" +
+      encodeURIComponent(message);
+
+    // Open WhatsApp
+    window.location.href = whatsappURL;
+  };
+
   return (
     <div
       className="container my-5"
@@ -14,7 +86,12 @@ function ContactSection() {
         will contact you.
       </p>
 
-      <form className="shadow p-4 rounded">
+      <form
+        className="shadow p-4 rounded"
+        onSubmit={handleSubmit}
+      >
+
+        {/* NAME */}
 
         <div className="mb-3">
 
@@ -24,11 +101,17 @@ function ContactSection() {
 
           <input
             type="text"
+            name="name"
             className="form-control"
             placeholder="Enter your name"
+            value={formData.name}
+            onChange={handleChange}
           />
 
         </div>
+
+
+        {/* EMAIL */}
 
         <div className="mb-3">
 
@@ -38,11 +121,17 @@ function ContactSection() {
 
           <input
             type="email"
+            name="email"
             className="form-control"
             placeholder="Enter your email"
+            value={formData.email}
+            onChange={handleChange}
           />
 
         </div>
+
+
+        {/* PHONE */}
 
         <div className="mb-3">
 
@@ -51,12 +140,19 @@ function ContactSection() {
           </label>
 
           <input
-            type="text"
+            type="tel"
+            name="phone"
             className="form-control"
-            placeholder="Enter phone number"
+            placeholder="Enter 10 digit phone number"
+            value={formData.phone}
+            onChange={handleChange}
+            maxLength="10"
           />
 
         </div>
+
+
+        {/* REQUIREMENT */}
 
         <div className="mb-3">
 
@@ -65,18 +161,24 @@ function ContactSection() {
           </label>
 
           <textarea
+            name="requirement"
             className="form-control"
             rows="4"
             placeholder="Tell us about your interior project"
+            value={formData.requirement}
+            onChange={handleChange}
           ></textarea>
 
         </div>
+
+
+        {/* SUBMIT */}
 
         <button
           type="submit"
           className="btn btn-dark w-100"
         >
-          Submit Enquiry
+          Submit Enquiry →
         </button>
 
       </form>

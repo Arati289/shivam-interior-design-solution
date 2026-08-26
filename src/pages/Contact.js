@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -8,15 +8,11 @@ function Contact() {
     message: "",
   });
 
-  const whatsappNumber = "917058253252";
-  const emailAddress = "info@shivaminteriors.com";
-  const phoneNumber = "+917058253252";
-
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setFormData((previous) => ({
-      ...previous,
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
     }));
   };
@@ -24,37 +20,74 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const whatsappMessage = `
-Hello Shivam Interior Design Solution,
+    // Check required fields
+    if (
+      formData.name.trim() === "" ||
+      formData.phone.trim() === "" ||
+      formData.service === "" ||
+      formData.message.trim() === ""
+    ) {
+      alert("Please fill all the fields.");
+      return;
+    }
 
-I would like to enquire about an interior design project.
+    // Check phone number
+    const phone = formData.phone.replace(/\D/g, "");
 
-Name: ${formData.name}
-Phone: ${formData.phone}
-Service: ${formData.service}
-Project Details: ${formData.message || "Not provided"}
-`;
+    if (phone.length !== 10) {
+      alert("Please enter a valid 10-digit phone number.");
+      return;
+    }
 
-    const whatsappUrl =
-      `https://wa.me/${whatsappNumber}?text=` +
-      encodeURIComponent(whatsappMessage);
+    // Create WhatsApp message
+    const message =
+      "Hello Shivam Interior Design Solution,\n\n" +
+      "I would like to enquire about an interior design project.\n\n" +
+      "Name: " +
+      formData.name +
+      "\n" +
+      "Phone: " +
+      formData.phone +
+      "\n" +
+      "Service: " +
+      formData.service +
+      "\n\n" +
+      "Project Details:\n" +
+      formData.message +
+      "\n\n" +
+      "Please contact me regarding this enquiry.";
 
-    window.open(whatsappUrl, "_blank");
+    // WhatsApp number
+    const whatsappNumber = "919767462242";
+
+    // WhatsApp URL
+    const whatsappURL =
+      "https://wa.me/" +
+      whatsappNumber +
+      "?text=" +
+      encodeURIComponent(message);
+
+    // Open WhatsApp
+    window.location.href = whatsappURL;
   };
 
   return (
     <div className="contact-page">
 
-      {/* ================= HERO ================= */}
+      {/* =========================
+          HERO
+      ========================= */}
 
       <section className="new-contact-hero">
+
         <div className="new-contact-overlay">
 
           <div className="container">
+
             <div className="new-contact-hero-content">
 
               <span className="contact-mini-title">
-                SHIVAM INTERIOR DESIGN SOLUTION
+                LET'S CREATE TOGETHER
               </span>
 
               <h1>
@@ -64,38 +97,43 @@ Project Details: ${formData.message || "Not provided"}
               </h1>
 
               <p>
-                Tell us about your dream space and
-                let our team help bring your vision to life.
+                Tell us about your dream space and let our
+                team bring your vision to life with thoughtful
+                and beautiful interior design.
               </p>
 
               <div className="hero-contact-buttons">
 
                 <a
-                  href={`https://wa.me/${whatsappNumber}`}
+                  href="https://wa.me/919767462242"
                   target="_blank"
                   rel="noreferrer"
                   className="hero-whatsapp-btn"
                 >
-                  WhatsApp Us
+                  WhatsApp Us →
                 </a>
 
                 <a
-                  href={`mailto:${emailAddress}`}
+                  href="mailto:info@shivaminteriors.com"
                   className="hero-mail-btn"
                 >
-                  Send Email
+                  Send Email →
                 </a>
 
               </div>
 
             </div>
+
           </div>
 
         </div>
+
       </section>
 
 
-      {/* ================= CONTACT CONTENT ================= */}
+      {/* =========================
+          CONTACT SECTION
+      ========================= */}
 
       <section className="new-contact-section">
 
@@ -103,9 +141,12 @@ Project Details: ${formData.message || "Not provided"}
 
           <div className="row g-5 align-items-start">
 
-            {/* ================= LEFT ================= */}
 
-            <div className="col-lg-4">
+            {/* =========================
+                LEFT SIDE
+            ========================= */}
+
+            <div className="col-lg-5">
 
               <span className="new-section-label">
                 CONTACT US
@@ -126,101 +167,107 @@ Project Details: ${formData.message || "Not provided"}
 
               <div className="new-contact-details">
 
+
                 {/* PHONE */}
 
                 <a
-                  href={`tel:${phoneNumber}`}
+                  href="tel:+919767462242"
                   className="contact-detail"
                 >
+
                   <div className="contact-detail-icon">
                     ☎
                   </div>
 
                   <div>
-                    <span>CALL US</span>
+
+                    <span>
+                      CALL US
+                    </span>
 
                     <strong>
-                      +91 7058253252
+                      +91 97674 62242
                     </strong>
+
                   </div>
+
                 </a>
 
 
                 {/* EMAIL */}
 
                 <a
-                  href={`mailto:${emailAddress}`}
+                  href="mailto:info@shivaminteriors.com"
                   className="contact-detail"
                 >
+
                   <div className="contact-detail-icon">
                     ✉
                   </div>
 
                   <div>
-                    <span>EMAIL US</span>
+
+                    <span>
+                      EMAIL US
+                    </span>
 
                     <strong>
-                      {emailAddress}
+                      info@shivaminteriors.com
                     </strong>
+
                   </div>
+
                 </a>
 
 
                 {/* WHATSAPP */}
 
                 <a
-                  href={`https://wa.me/${whatsappNumber}`}
+                  href="https://wa.me/919767462242"
                   target="_blank"
                   rel="noreferrer"
                   className="contact-detail"
                 >
-                  <div className="contact-detail-icon whatsapp-icon">
-                    ◉
+
+                  <div className="contact-detail-icon">
+                    💬
                   </div>
 
                   <div>
-                    <span>WHATSAPP</span>
+
+                    <span>
+                      WHATSAPP
+                    </span>
 
                     <strong>
                       Chat With Our Team
                     </strong>
+
                   </div>
+
                 </a>
 
 
                 {/* LOCATION */}
 
                 <div className="contact-detail">
+
                   <div className="contact-detail-icon">
-                    ◎
+                    📍
                   </div>
 
                   <div>
-                    <span>VISIT US</span>
+
+                    <span>
+                      LOCATION
+                    </span>
 
                     <strong>
                       Pune, Maharashtra, India
                     </strong>
-                  </div>
-                </div>
 
-
-                {/* WORKING HOURS */}
-
-                <div className="contact-detail">
-                  <div className="contact-detail-icon">
-                    ◷
                   </div>
 
-                  <div>
-                    <span>WORKING HOURS</span>
-
-                    <strong>
-                      Monday - Saturday
-                      <br />
-                      10:00 AM - 7:00 PM
-                    </strong>
-                  </div>
                 </div>
 
               </div>
@@ -228,11 +275,14 @@ Project Details: ${formData.message || "Not provided"}
             </div>
 
 
-            {/* ================= FORM ================= */}
+            {/* =========================
+                FORM
+            ========================= */}
 
-            <div className="col-lg-8">
+            <div className="col-lg-7">
 
               <div className="new-contact-form-card">
+
 
                 <div className="form-top">
 
@@ -245,34 +295,40 @@ Project Details: ${formData.message || "Not provided"}
                   </h3>
 
                   <p>
-                    Fill in the details and send your
-                    enquiry directly to WhatsApp.
+                    Fill in the details below and send your
+                    enquiry directly to our WhatsApp.
                   </p>
 
                 </div>
 
 
+                {/* FORM */}
+
                 <form onSubmit={handleSubmit}>
+
 
                   {/* NAME + PHONE */}
 
                   <div className="row">
 
+
+                    {/* NAME */}
+
                     <div className="col-md-6">
 
                       <div className="new-form-group">
 
-                        <label>
-                          Full Name *
+                        <label htmlFor="name">
+                          Full Name
                         </label>
 
                         <input
                           type="text"
+                          id="name"
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="Enter your name"
-                          required
                         />
 
                       </div>
@@ -280,21 +336,24 @@ Project Details: ${formData.message || "Not provided"}
                     </div>
 
 
+                    {/* PHONE */}
+
                     <div className="col-md-6">
 
                       <div className="new-form-group">
 
-                        <label>
-                          Phone Number *
+                        <label htmlFor="phone">
+                          Phone Number
                         </label>
 
                         <input
                           type="tel"
+                          id="phone"
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          placeholder="Enter your phone number"
-                          required
+                          placeholder="Enter 10 digit number"
+                          maxLength="10"
                         />
 
                       </div>
@@ -308,23 +367,19 @@ Project Details: ${formData.message || "Not provided"}
 
                   <div className="new-form-group">
 
-                    <label>
-                      Select Service *
+                    <label htmlFor="service">
+                      Select Service
                     </label>
 
                     <select
+                      id="service"
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      required
                     >
 
                       <option value="">
                         Select a service
-                      </option>
-
-                      <option value="Complete Home Interior">
-                        Complete Home Interior
                       </option>
 
                       <option value="Modular Kitchen">
@@ -335,8 +390,8 @@ Project Details: ${formData.message || "Not provided"}
                         Living Room
                       </option>
 
-                      <option value="Bedroom Interior">
-                        Bedroom Interior
+                      <option value="Bedroom Design">
+                        Bedroom Design
                       </option>
 
                       <option value="Wardrobe Design">
@@ -351,53 +406,60 @@ Project Details: ${formData.message || "Not provided"}
                         False Ceiling
                       </option>
 
+                      <option value="Full Home Interior">
+                        Full Home Interior
+                      </option>
+
                     </select>
 
                   </div>
 
 
-                  {/* MESSAGE */}
+                  {/* PROJECT DETAILS */}
 
                   <div className="new-form-group">
 
-                    <label>
+                    <label htmlFor="message">
                       Project Details
                     </label>
 
                     <textarea
+                      id="message"
                       name="message"
+                      rows="5"
                       value={formData.message}
                       onChange={handleChange}
-                      rows="5"
                       placeholder="Tell us about your space, requirements, area, budget, etc."
-                    ></textarea>
+                    />
 
                   </div>
 
 
-                  {/* WHATSAPP SUBMIT */}
+                  {/* SUBMIT */}
 
                   <button
                     type="submit"
                     className="new-whatsapp-btn"
                   >
-                    <span>◉</span>
-
-                    Send Enquiry on WhatsApp
 
                     <strong>
-                      →
+                      💬
                     </strong>
+
+                    Send Enquiry on WhatsApp →
 
                   </button>
 
+
+                  <div className="privacy-note">
+
+                    Your information is used only to respond
+                    to your enquiry. Clicking the button will
+                    open WhatsApp with your enquiry details.
+
+                  </div>
+
                 </form>
-
-
-                <div className="privacy-note">
-                  Your information is used only to respond
-                  to your enquiry.
-                </div>
 
               </div>
 
@@ -410,7 +472,9 @@ Project Details: ${formData.message || "Not provided"}
       </section>
 
 
-      {/* ================= BOTTOM CTA ================= */}
+      {/* =========================
+          BOTTOM CTA
+      ========================= */}
 
       <section className="contact-bottom-cta">
 
@@ -418,37 +482,34 @@ Project Details: ${formData.message || "Not provided"}
 
           <div className="cta-inner">
 
+
             <div>
+
               <span>
-                NEED QUICK ASSISTANCE?
+                READY TO START?
               </span>
 
               <h3>
-                Chat directly with our interior team.
+                Let's create a beautiful space together.
               </h3>
+
             </div>
 
 
             <div className="cta-buttons">
 
               <a
-                href={`https://wa.me/${whatsappNumber}`}
+                href="https://wa.me/919767462242"
                 target="_blank"
                 rel="noreferrer"
               >
-                WhatsApp
+                WhatsApp Us
               </a>
 
               <a
-                href={`mailto:${emailAddress}`}
+                href="mailto:info@shivaminteriors.com"
               >
                 Email Us
-              </a>
-
-              <a
-                href={`tel:${phoneNumber}`}
-              >
-                Call Now
               </a>
 
             </div>
@@ -458,33 +519,6 @@ Project Details: ${formData.message || "Not provided"}
         </div>
 
       </section>
-
-
-      {/* ================= FLOATING BUTTONS ================= */}
-
-      <div className="floating-contact">
-
-        <a
-          href={`https://wa.me/${whatsappNumber}`}
-          target="_blank"
-          rel="noreferrer"
-          className="floating-whatsapp"
-          title="Chat on WhatsApp"
-        >
-          <span>◉</span>
-          <small>WhatsApp</small>
-        </a>
-
-        <a
-          href={`mailto:${emailAddress}`}
-          className="floating-email"
-          title="Send Email"
-        >
-          <span>✉</span>
-          <small>Email</small>
-        </a>
-
-      </div>
 
     </div>
   );

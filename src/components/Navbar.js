@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const whatsappNumber = "917058253252";
+  const whatsappNumber = "919767462242";
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">

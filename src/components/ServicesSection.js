@@ -1,9 +1,13 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import bedroom from "../assets/images/bedroom.jpg";
 
 function ServicesSection() {
+  const navigate = useNavigate();
 
   const services = [
     {
+      id: 1,
       title: "Modular Kitchen",
       description:
         "Modern and functional kitchens designed according to your lifestyle.",
@@ -12,6 +16,7 @@ function ServicesSection() {
     },
 
     {
+      id: 2,
       title: "Living Room",
       description:
         "Elegant living spaces that combine comfort, style and functionality.",
@@ -20,6 +25,7 @@ function ServicesSection() {
     },
 
     {
+      id: 3,
       title: "Bedroom Design",
       description:
         "Beautiful and peaceful bedrooms designed for comfort and relaxation.",
@@ -27,6 +33,7 @@ function ServicesSection() {
     },
 
     {
+      id: 4,
       title: "Wardrobe Design",
       description:
         "Smart storage solutions with stylish and modern wardrobe designs.",
@@ -35,6 +42,7 @@ function ServicesSection() {
     },
 
     {
+      id: 5,
       title: "Office Interior",
       description:
         "Professional workspaces designed for productivity and comfort.",
@@ -43,6 +51,7 @@ function ServicesSection() {
     },
 
     {
+      id: 6,
       title: "False Ceiling",
       description:
         "Stylish ceiling designs that enhance the beauty of your interiors.",
@@ -51,12 +60,16 @@ function ServicesSection() {
     },
   ];
 
+  const handleViewDetails = (serviceId) => {
+    navigate(`/service/${serviceId}`);
+  };
+
   return (
     <section className="services-section py-5">
 
       <div className="container">
 
-        {/* Heading */}
+        {/* HEADING */}
 
         <div className="text-center mb-5">
 
@@ -75,18 +88,21 @@ function ServicesSection() {
 
         </div>
 
-        {/* Cards */}
+
+        {/* SERVICE CARDS */}
 
         <div className="row">
 
-          {services.map((service, index) => (
+          {services.map((service) => (
 
             <div
               className="col-lg-4 col-md-6 mb-4"
-              key={index}
+              key={service.id}
             >
 
               <div className="service-card">
+
+                {/* IMAGE */}
 
                 <div className="service-image">
 
@@ -96,6 +112,9 @@ function ServicesSection() {
                   />
 
                 </div>
+
+
+                {/* CONTENT */}
 
                 <div className="service-content">
 
@@ -107,8 +126,14 @@ function ServicesSection() {
                     {service.description}
                   </p>
 
-                  <button className="btn btn-outline-dark">
-                    View Details
+                  <button
+                    type="button"
+                    className="btn btn-outline-dark"
+                    onClick={() =>
+                      handleViewDetails(service.id)
+                    }
+                  >
+                    View Details →
                   </button>
 
                 </div>

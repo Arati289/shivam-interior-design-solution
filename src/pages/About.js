@@ -1,324 +1,130 @@
+import React from "react";
+
 function About() {
   return (
     <div className="about-page">
 
-      {/* ================= HERO ================= */}
-
       <section className="about-hero">
+        <div className="about-hero-overlay">
+          <div className="container">
+            <div className="about-hero-content">
+              <span>ABOUT SHIVAM INTERIORS</span>
+              <h1>
+                Creating Spaces
+                <br />
+                <em>That Feel Like Home.</em>
+              </h1>
+              <p>
+                We design beautiful, functional and timeless interiors
+                that reflect the people who live and work in them.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <div className="about-overlay">
+      <section className="about-intro">
+        <div className="container">
+          <div className="about-intro-grid">
 
-          <div className="container text-center text-white">
+            <div className="about-intro-image">
+              <img
+                src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg"
+                alt="Interior design"
+              />
+            </div>
 
-            <p className="about-label">
-              ABOUT US
-            </p>
+            <div className="about-intro-content">
+              <span className="about-label">WHO WE ARE</span>
 
-            <h1>
-              Designing Spaces,
-              <br />
-              Creating Experiences
-            </h1>
+              <h2>
+                Design With
+                <em> Purpose.</em>
+              </h2>
 
+              <p>
+                Shivam Interior Design Solution is focused on creating
+                interiors that combine elegance, comfort and functionality.
+              </p>
+
+              <p>
+                From individual rooms to complete homes and workspaces,
+                we carefully understand every client's requirements and
+                turn their ideas into thoughtfully designed spaces.
+              </p>
+
+              <div className="about-stats">
+                <div>
+                  <strong>50+</strong>
+                  <span>Projects</span>
+                </div>
+
+                <div>
+                  <strong>100%</strong>
+                  <span>Dedication</span>
+                </div>
+
+                <div>
+                  <strong>5★</strong>
+                  <span>Client Focus</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section className="about-values">
+        <div className="container">
+
+          <div className="about-section-heading">
+            <span>OUR VALUES</span>
+            <h2>What We Believe In</h2>
             <p>
-              We transform houses into beautiful,
-              comfortable and meaningful homes.
+              Every project is approached with creativity,
+              attention to detail and a commitment to quality.
             </p>
-
           </div>
 
-        </div>
+          <div className="about-values-grid">
 
-      </section>
-
-
-      {/* ================= STORY ================= */}
-
-      <section className="about-story py-5">
-
-        <div className="container">
-
-          <div className="row align-items-center">
-
-            {/* Image */}
-
-            <div className="col-lg-6 mb-4">
-
-              <div className="about-image">
-
-                <img
-                  src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg"
-                  alt="Interior Design"
-                />
-
-              </div>
-
+            <div className="about-value-card">
+              <span>01</span>
+              <h3>Creativity</h3>
+              <p>
+                Fresh ideas and thoughtful design solutions for every space.
+              </p>
             </div>
 
-
-            {/* Content */}
-
-            <div className="col-lg-6">
-
-              <span className="section-label">
-                WHO WE ARE
-              </span>
-
-              <h2 className="about-title">
-                Turning Your Vision
-                Into Beautiful Spaces
-              </h2>
-
+            <div className="about-value-card">
+              <span>02</span>
+              <h3>Quality</h3>
               <p>
-                Shivam Interior Design Solution is an
-                interior design company focused on creating
-                beautiful, functional and personalized spaces.
+                We focus on quality materials, finishes and workmanship.
               </p>
+            </div>
 
+            <div className="about-value-card">
+              <span>03</span>
+              <h3>Trust</h3>
               <p>
-                From modern homes to elegant offices, we
-                carefully understand our client's requirements
-                and create designs that match their lifestyle,
-                personality and budget.
+                Clear communication and honest guidance throughout the project.
               </p>
+            </div>
 
+            <div className="about-value-card">
+              <span>04</span>
+              <h3>Functionality</h3>
               <p>
-                Our goal is simple — to make every space
-                beautiful, comfortable and practical.
+                Beautiful spaces that are practical and comfortable every day.
               </p>
-
             </div>
 
           </div>
 
         </div>
-
       </section>
-
-
-      {/* ================= MISSION / VISION ================= */}
-
-      <section className="mission-section py-5">
-
-        <div className="container">
-
-          <div className="row">
-
-            {/* Mission */}
-
-            <div className="col-md-6 mb-4">
-
-              <div className="mission-card">
-
-                <span className="mission-number">
-                  01
-                </span>
-
-                <h3>
-                  Our Mission
-                </h3>
-
-                <p>
-                  To create thoughtful interior spaces that
-                  combine aesthetics, comfort and functionality
-                  while delivering an excellent customer
-                  experience.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            {/* Vision */}
-
-            <div className="col-md-6 mb-4">
-
-              <div className="mission-card">
-
-                <span className="mission-number">
-                  02
-                </span>
-
-                <h3>
-                  Our Vision
-                </h3>
-
-                <p>
-                  To become a trusted interior design brand
-                  known for creativity, quality, transparency
-                  and customer satisfaction.
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* ================= STATS ================= */}
-
-      <section className="about-stats py-5">
-
-        <div className="container">
-
-          <div className="row text-center">
-
-            <div className="col-md-3 col-6 mb-4">
-
-              <h2>
-                100+
-              </h2>
-
-              <p>
-                Projects
-              </p>
-
-            </div>
-
-
-            <div className="col-md-3 col-6 mb-4">
-
-              <h2>
-                50+
-              </h2>
-
-              <p>
-                Happy Clients
-              </p>
-
-            </div>
-
-
-            <div className="col-md-3 col-6 mb-4">
-
-              <h2>
-                5+
-              </h2>
-
-              <p>
-                Years Experience
-              </p>
-
-            </div>
-
-
-            <div className="col-md-3 col-6 mb-4">
-
-              <h2>
-                100%
-              </h2>
-
-              <p>
-                Commitment
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* ================= WHY CHOOSE US ================= */}
-
-      <section className="why-section py-5">
-
-        <div className="container">
-
-          <div className="text-center mb-5">
-
-            <span className="section-label">
-              WHY CHOOSE US
-            </span>
-
-            <h2 className="about-title">
-              Why Choose Shivam Interior?
-            </h2>
-
-          </div>
-
-
-          <div className="row">
-
-            <div className="col-lg-4 col-md-6 mb-4">
-
-              <div className="why-card">
-
-                <div className="why-icon">
-                  ✦
-                </div>
-
-                <h4>
-                  Personalized Design
-                </h4>
-
-                <p>
-                  Every project is designed according to
-                  your lifestyle, requirements and preferences.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div className="col-lg-4 col-md-6 mb-4">
-
-              <div className="why-card">
-
-                <div className="why-icon">
-                  ◆
-                </div>
-
-                <h4>
-                  Quality Materials
-                </h4>
-
-                <p>
-                  We focus on quality materials and finishes
-                  to create interiors that last.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div className="col-lg-4 col-md-6 mb-4">
-
-              <div className="why-card">
-
-                <div className="why-icon">
-                  ✓
-                </div>
-
-                <h4>
-                  Professional Service
-                </h4>
-
-                <p>
-                  From initial consultation to final delivery,
-                  we focus on a smooth customer experience.
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
 
     </div>
   );
